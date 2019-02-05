@@ -1,0 +1,42 @@
+<div class="shopping-cart-component">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Quantity</th>
+              <th scope="col">Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <ng-container *ngIf="shoppingCart">
+              <tr *ngFor="let item of shoppingCart.items; let i=index">
+                <td scope="row">{{item.product.brand}}</td>
+                <td scope="row">{{item.quantity}}</td>
+                <td scope="row">${{item.total | number:'.2-2'}}</td>
+                <td scope="row">
+                  <button type="button"
+                          class="btn btn-primary"
+                          (click)="deleteShoppingCartItem($event, i)">Delete</button>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row"></th>
+                <th scope="row"></th>
+                <th scope="row">Grand Total: ${{shoppingCart.total | number:'.2-2'}}</th>
+                <th scope="row"></th>
+              </tr>
+            </ng-container>
+            <ng-container *ngIf="!shoppingCart">
+              <tr>
+                <td colspan="3">No items</td>
+              </tr>
+            </ng-container>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+.shopping-cart-item-component {
+  .row {
+    .col {
+      padding: 5px;
+      align-self: center;
+      &.label {
+        text-align: right;
+      }
+      &.value { }
+    }
+  }
+}

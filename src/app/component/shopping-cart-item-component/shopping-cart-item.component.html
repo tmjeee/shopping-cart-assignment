@@ -1,0 +1,43 @@
+<div class="shopping-cart-item-component">
+  <form (ngSubmit)="addToShoppingCart($event)">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-2 label">Brand</div>
+        <div class="col value">
+          <div ngbDropdown class="d-inline-block">
+            <button class="btn btn-outline-primary" (click)="$event.preventDefault();"  ngbDropdownToggle>
+              <ng-container *ngIf="selectedProductFormControl.value">{{selectedProductFormControl.value.brand}}</ng-container>
+              <ng-container *ngIf="!selectedProductFormControl.value">Select a Brand</ng-container>
+            </button>
+            <div ngbDropdownMenu>
+              <ng-container *ngFor="let product of products">
+                <button class="dropdown-item" (click)="onProductSelected($event, product)">{{product.brand}}</button>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-2 label">Quantity</div>
+        <div class="col value">
+          <input type="number"
+                 class="form-control"
+                 min="1"
+                 [formControl]="selectedQuantityFormControl"
+                 (change)="onQuantityChanged($event)">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-2 label">Price</div>
+        <div class="col value">
+          ${{totalPrice | number:'.2-2'}}
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-auto">
+          <button type="button" [disabled]="!formGroup.valid" class="btn btn-primary" (click)="addToShoppingCart($event)">Add</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
