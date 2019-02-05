@@ -1,4 +1,4 @@
-# AMP Angular interview seed repo
+# Assignment-2
 A seed Angular repo, to give candidate a common starting point to demonstrate their skills.
 
 # Task
