@@ -1,4 +1,4 @@
-# Assignment-2
+# Shopping Cart Assignment
 A seed Angular repo, to give candidate a common starting point to demonstrate their skills.
 
 # Task
